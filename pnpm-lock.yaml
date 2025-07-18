@@ -22,19 +22,13 @@ importers:
         version: 5.8.3
 
   packages/eslint-config:
-    devDependencies:
+    dependencies:
       '@eslint/js':
         specifier: ^9.31.0
         version: 9.31.0
       '@next/eslint-plugin-next':
         specifier: ^15.2.4
         version: 15.4.1
-      '@tsconfig/strictest':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@types/node':
-        specifier: ^22.0.0
-        version: 22.16.4
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.4.0
         version: 8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.31.0)(typescript@5.8.3))(eslint@9.31.0)(typescript@5.8.3)
@@ -77,6 +71,13 @@ importers:
       typescript-eslint:
         specifier: ^8.37.0
         version: 8.37.0(eslint@9.31.0)(typescript@5.8.3)
+    devDependencies:
+      '@tsconfig/strictest':
+        specifier: ^2.0.5
+        version: 2.0.5
+      '@types/node':
+        specifier: ^22.16.4
+        version: 22.16.4
 
   packages/typescript-config:
     devDependencies:

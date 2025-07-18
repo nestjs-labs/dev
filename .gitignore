@@ -57,3 +57,23 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.lzma
+*.tar.lz
+*.tar.zst
+*.tar.zstd
+*.tar.br
+*.tgz
+*.zip
+*.7z
+*.rar
+*.iso
+*.dmg
+*.pkg
+*.deb
+*.rpm
+*.msi
