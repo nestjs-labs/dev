@@ -1,0 +1,17 @@
+{
+  "name": "@nestjs-labs/typescript-config",
+  "version": "1.0.0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./base.json",
+    "./nestjs": "./nestjs.json",
+    "./nextjs": "./nextjs.json",
+    "./react-library": "./react-library.json"
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.5"
+  }
+}
