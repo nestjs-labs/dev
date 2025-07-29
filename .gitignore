@@ -77,3 +77,9 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 *.deb
 *.rpm
 *.msi
+
+# Turbo
+.turbo/
+
+# Docs
+_docs/
