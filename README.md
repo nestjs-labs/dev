@@ -1,15 +1,19 @@
 # NestJS Labs Dev
 
-A monorepo for NestJS development environment, providing reusable ESLint and TypeScript configurations.
+A monorepo for NestJS development environment, providing reusable ESLint and TypeScript
+configurations.
 
 ## 🚀 Project Overview
 
-This monorepo contains various configuration packages for NestJS development, designed to provide a consistent and high-quality development experience.
+This monorepo contains various configuration packages for NestJS development, designed to provide a
+consistent and high-quality development experience.
 
 ## 📦 Included Packages
 
 ### `@nestjs-labs/eslint-config`
+
 Provides modular ESLint configurations supporting multiple project types:
+
 - **Base**: Basic configuration
 - **Node.js**: Node.js project configuration
 - **NestJS**: NestJS project configuration
@@ -18,7 +22,9 @@ Provides modular ESLint configurations supporting multiple project types:
 - **Jest**: Test files configuration
 
 ### `@nestjs-labs/typescript-config`
+
 Provides TypeScript configuration files:
+
 - **Base**: Basic TypeScript configuration
 - **NestJS**: NestJS project specific configuration
 - **Next.js**: Next.js project specific configuration
@@ -130,7 +136,10 @@ MIT License
 
 ## 🙏 Acknowledgments
 
-This project is inspired by and references the excellent work from [@polkadot-js/dev](https://github.com/polkadot-js/dev), which provides shared development configurations and CI scripts for the Polkadot.js ecosystem. Their approach to creating reusable development tooling has been a great inspiration for this project.
+This project is inspired by and references the excellent work from
+[@polkadot-js/dev](https://github.com/polkadot-js/dev), which provides shared development
+configurations and CI scripts for the Polkadot.js ecosystem. Their approach to creating reusable
+development tooling has been a great inspiration for this project.
 
 ## 🔗 Related Links
 

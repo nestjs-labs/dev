@@ -1,19 +1,34 @@
-// @ts-check
+/* eslint-disable sort-keys */
+
+import type { ConfigArray } from 'typescript-eslint';
+
 import js from '@eslint/js';
+import tsParser from '@typescript-eslint/parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 import nPlugin from 'eslint-plugin-n';
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
-import sortDestructureKeysPlugin from 'eslint-plugin-sort-destructure-keys';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 /**
- * Base ESLint configuration for all projects
+ * A custom ESLint configuration for all projects.
  */
-export default tseslint.config(
+export const baseConfig: ConfigArray = tseslint.config(
   {
-    ignores: ['**/.github/', '**/.vscode/', '**/.yarn/', '**/build/', '**/build-*/', '**/coverage/', '**/dist/', '**/node_modules/', '**/.turbo/', '**/.next/', '**/out/'],
+    ignores: [
+      '**/.github/',
+      '**/.vscode/',
+      '**/.yarn/',
+      '**/build/',
+      '**/build-*/',
+      '**/coverage/',
+      '**/dist/',
+      '**/node_modules/',
+      '**/.turbo/',
+      '**/.next/',
+      '**/out/',
+    ],
   },
   js.configs.recommended,
   eslintConfigPrettier,
@@ -26,21 +41,18 @@ export default tseslint.config(
         ...globals.node,
         ...globals.es2022,
       },
+      parser: tsParser,
       parserOptions: {
         ecmaVersion: 'latest',
-        project: './tsconfig.eslint.json',
+        project: true,
         sourceType: 'module',
         warnOnUnsupportedTypeScriptVersion: false,
-        ecmaFeatures: {
-          jsx: true,
-        },
       },
     },
     plugins: {
       import: importPlugin,
       n: nPlugin,
       'simple-import-sort': simpleImportSortPlugin,
-      'sort-destructure-keys': sortDestructureKeysPlugin,
     },
     settings: {
       'import/extensions': ['.js', '.cjs', '.mjs', '.ts', '.tsx'],
@@ -54,9 +66,9 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/dot-notation': 'error',
       '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
       '@typescript-eslint/prefer-optional-chain': 'error',
-      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
 
       // Unused variables configuration
       '@typescript-eslint/no-unused-vars': [
@@ -127,7 +139,11 @@ export default tseslint.config(
       'padding-line-between-statements': [
         'error',
         { blankLine: 'always', next: '*', prev: ['const', 'let', 'var'] },
-        { blankLine: 'any', next: ['const', 'let', 'var'], prev: ['const', 'let', 'var'] },
+        {
+          blankLine: 'any',
+          next: ['const', 'let', 'var'],
+          prev: ['const', 'let', 'var'],
+        },
         { blankLine: 'always', next: 'block-like', prev: '*' },
         { blankLine: 'always', next: '*', prev: 'block-like' },
         { blankLine: 'always', next: 'function', prev: '*' },
@@ -154,14 +170,21 @@ export default tseslint.config(
             ['\u0000$', '^@nestjs-labs.*\u0000$', '^\\..*\u0000$'], // types (0 at end)
             ['^[^/\\.]'], // external packages
             ['^@nestjs-labs'], // internal packages
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$', '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'], // relative imports
+            [
+              '^\\.\\.(?!/?$)',
+              '^\\.\\./?$',
+              '^\\./(?=.*/)(?!/?$)',
+              '^\\.(?!/?$)',
+              '^\\./?$',
+            ], // relative imports
           ],
         },
       ],
-
-      // Destructuring sorting
-      'sort-destructure-keys/sort-destructure-keys': [2, { caseSensitive: false }],
-      'sort-keys': 'error',
+      'sort-keys': [
+        'warn',
+        'asc',
+        { caseSensitive: true, natural: false, minKeys: 2 },
+      ],
 
       // Comments
       'spaced-comment': [
@@ -191,5 +214,7 @@ export default tseslint.config(
       '@typescript-eslint/restrict-plus-operands': 'off',
       '@typescript-eslint/restrict-template-expressions': 'off',
     },
-  }
+  },
 );
+
+export default baseConfig;

@@ -1,0 +1,8 @@
+{
+  "extends": "@nestjs-labs/typescript-config/base.json",
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "composite": true,
+    "resolveJsonModule": true
+  }
+}

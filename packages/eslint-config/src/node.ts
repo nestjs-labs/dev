@@ -1,13 +1,16 @@
+/* eslint-disable sort-keys */
+
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
 import globals from 'globals';
+import tseslint, { type ConfigArray } from 'typescript-eslint';
+
 import baseConfig from './base.js';
 
 /**
- * A custom ESLint configuration for Node.js projects.
+ * A custom ESLint configuration for libraries that use Node.js.
  */
-export default tseslint.config(
+export const nodeConfig: ConfigArray = tseslint.config(
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
@@ -34,5 +37,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-assignment': 'warn',
       '@typescript-eslint/no-unsafe-return': 'warn',
     },
-  }
+  },
 );
+
+export default nodeConfig;

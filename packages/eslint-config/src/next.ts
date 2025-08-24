@@ -1,25 +1,28 @@
+/* eslint-disable sort-keys */
+
 import js from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
-import pluginReactHooks from 'eslint-plugin-react-hooks';
-import pluginReact from 'eslint-plugin-react';
-import globals from 'globals';
 import pluginNext from '@next/eslint-plugin-next';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import globals from 'globals';
+import tseslint, { type ConfigArray } from 'typescript-eslint';
+
 import baseConfig from './base.js';
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
  */
-export default tseslint.config(
+export const nextConfig: ConfigArray = tseslint.config(
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   {
-    ...pluginReact.configs.flat.recommended,
+    ...pluginReact.configs.flat['recommended'],
     languageOptions: {
-      ...pluginReact.configs.flat.recommended.languageOptions,
+      ...pluginReact.configs.flat['recommended'].languageOptions,
       globals: {
         ...globals.serviceworker,
       },
@@ -40,5 +43,7 @@ export default tseslint.config(
       // React scope no longer necessary with new JSX transform.
       'react/react-in-jsx-scope': 'off',
     },
-  }
+  },
 );
+
+export default nextConfig;
