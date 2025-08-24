@@ -1,15 +1,22 @@
+/* eslint-disable sort-keys */
+
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
 import globals from 'globals';
-import { fileURLToPath } from 'node:url';
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+import tseslint, { type ConfigArray } from 'typescript-eslint';
+
 import baseConfig from './base.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /**
  * A custom ESLint configuration for libraries that use NestJS.
  */
-export default tseslint.config(
+export const nestConfig: ConfigArray = tseslint.config(
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
@@ -24,7 +31,7 @@ export default tseslint.config(
       sourceType: 'commonjs',
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: __dirname
+        tsconfigRootDir: __dirname,
       },
     },
   },
@@ -41,5 +48,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unnecessary-type-arguments': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
     },
-  }
+  },
 );
+
+export default nestConfig;

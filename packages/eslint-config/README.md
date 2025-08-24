@@ -5,6 +5,7 @@ This package provides modular ESLint configurations for different project types.
 ## Available Configurations
 
 ### Base Configuration
+
 ```javascript
 // eslint.config.js
 import baseConfig from '@nestjs-labs/eslint-config/base';
@@ -12,6 +13,7 @@ export default baseConfig;
 ```
 
 ### Node.js Projects
+
 ```javascript
 // eslint.config.js
 import nodeJsConfig from '@nestjs-labs/eslint-config/node';
@@ -19,6 +21,7 @@ export default nodeJsConfig;
 ```
 
 ### NestJS Projects
+
 ```javascript
 // eslint.config.js
 import nestJsConfig from '@nestjs-labs/eslint-config/nest';
@@ -26,6 +29,7 @@ export default nestJsConfig;
 ```
 
 ### Next.js Projects
+
 ```javascript
 // eslint.config.js
 import nextJsConfig from '@nestjs-labs/eslint-config/next';
@@ -33,6 +37,7 @@ export default nextJsConfig;
 ```
 
 ### React Projects
+
 ```javascript
 // eslint.config.js
 import reactConfig from '@nestjs-labs/eslint-config/react';
@@ -40,6 +45,7 @@ export default reactConfig;
 ```
 
 ### Jest Test Files
+
 ```javascript
 // eslint.config.js
 import jestConfig from '@nestjs-labs/eslint-config/jest';
@@ -47,6 +53,7 @@ export default jestConfig;
 ```
 
 ### Full Configuration (All Features)
+
 ```javascript
 // eslint.config.js
 import fullConfig from '@nestjs-labs/eslint-config';
@@ -70,6 +77,7 @@ export default [
 ```
 
 Available named exports:
+
 - `baseEslint` - Base configuration
 - `nodeEslint` - Node.js configuration
 - `nestEslint` - NestJS configuration

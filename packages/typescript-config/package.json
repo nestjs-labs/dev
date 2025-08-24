@@ -1,11 +1,22 @@
 {
   "name": "@nestjs-labs/typescript-config",
-  "version": "1.0.1",
+  "version": "1.0.0",
+  "description": "A base TSConfig for working with nestjs-labs.",
+  "author": "nestjs-labs",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "dependencies": {
+    "@tsconfig/strictest": "^2.0.5"
   },
   "devDependencies": {
-    "@tsconfig/strictest": "^2.0.5"
-  }
+    "typescript": "^5.9.2"
+  },
+  "files": [
+    "base.json",
+    "node.json",
+    "nestjs.json",
+    "nextjs.json"
+  ]
 }

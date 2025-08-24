@@ -1,21 +1,35 @@
 {
-  "name": "@nestjs-labs/dev",
+  "name": "@nestjs-labs/dev-monorepo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "check-types": "turbo run check-types",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "release:dry-run": "changeset version && changeset publish --dry-run",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@changesets/cli": "^2.29.5",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@nestjs-labs/eslint-config": "workspace:*",
+    "@nestjs-labs/prettier-config": "workspace:*",
+    "@nestjs-labs/typescript-config": "workspace:*",
+    "@types/node": "^22.16.4",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
     "prettier": "^3.6.2",
     "turbo": "^2.5.5",
-    "typescript": "5.8.3"
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "pnpm@9.0.0"
+  "packageManager": "pnpm@10.10.0"
 }

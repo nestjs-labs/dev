@@ -1,22 +1,7 @@
-import tseslint from 'typescript-eslint';
-
-import baseConfig from './base.js';
-import nodeJsConfig from './node.js';
-import nestJsConfig from './nest.js';
-import nextJsConfig from './next.js';
-import reactJsConfig from './react.js';
-import jestConfig from './jest.js';
-
-/**
- * Main ESLint configuration that combines all specialized configs
- * Use this for projects that need all features
- */
-export default tseslint.config(...baseConfig, ...nodeJsConfig, ...nestJsConfig, ...nextJsConfig, ...reactJsConfig, ...jestConfig, {
-  // Additional rules for package development
-  files: ['**/packages/**/*.ts', '**/packages/**/*.tsx'],
-  rules: {
-    // Additional rules for package development
-    '@typescript-eslint/no-unsafe-call': 'warn',
-    '@typescript-eslint/no-unsafe-member-access': 'warn',
-  },
-});
+export * from './all.js';
+export * from './base.js';
+export * from './jest.js';
+export * from './nest.js';
+export * from './next.js';
+export * from './node.js';
+export * from './react.js';
